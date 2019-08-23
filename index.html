@@ -5,7 +5,7 @@
 </head>
 <body>
   <script>
-      
+      console.log("Hello! Today we will be playing 5 rounds of rock paper scissors")
       function computerPlay() {
         let options = ["Rock", "Paper", "Scissors"]; //define three possible answers
         let index = Math.floor(Math.random() * options.length); // choose one randomly
@@ -13,28 +13,39 @@
         return options[index]; //return it
       }
       function playRound(playerSelection, computerSelection) {
+        let winner;
         playerSelection = playerSelection.toLowerCase();
         computerSelection = computerSelection.toLowerCase();
         switch (playerSelection) {
             case "rock":
-                if (computerSelection == "paper") return "You lose!";
-                if (computerSelection == "scissors") return "You win!";
-                if (computerSelection == "rock") return "It's a tie";
+                if (computerSelection == "paper") winner = "computer";
+                if (computerSelection == "scissors") winner = "player";
+                if (computerSelection == "rock") winner = "no one";
+                break;
             case "scissors":
-                if (computerSelection == "paper") return "You win!";
-                if (computerSelection == "scissors") return "Its a tie";
-                if (computerSelection == "rock") return "You lose!";
+                if (computerSelection == "paper") winner = "player";
+                if (computerSelection == "scissors") winner =  "no one";
+                if (computerSelection == "rock") winner = "computer";
+                break;
             case "paper":
-                if (computerSelection == "paper") return "Its a tie";
-                if (computerSelection == "scissors") return "You lose!";
-                if (computerSelection == "rock") return "You win!";
+                if (computerSelection == "paper") winner = "no one";
+                if (computerSelection == "scissors") winner = "computer";
+                if (computerSelection == "rock") winner = "player";
+                break;
             default: console.log("You have played an invalid option");
         }
+        return winner;
       }
-
-      const playerSelection = "rOcK";
-      const computerSelection = computerPlay();
-      
+      function game() {
+        for (let i=1;i<=5;i++) {
+          console.log("----");
+          console.log(`Round ${i}`);
+          let playerSelection = prompt("Enter your choice");
+          let computerSelection = computerPlay();
+          console.log(`The winner is ${playRound(playerSelection, computerSelection)}.\n`);
+        }
+      }
+      game();
   </script>
 </body>
 </html>
