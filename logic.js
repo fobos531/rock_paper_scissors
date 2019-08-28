@@ -1,4 +1,6 @@
-console.log("Hello! Today we will be playing 5 rounds of rock paper scissors")
+const round = document.getElementById('round');
+round.textContent = "1";
+
 function computerPlay() {
   let options = ["Rock", "Paper", "Scissors"]; //define three possible answers
   let index = Math.floor(Math.random() * options.length); // choose one randomly
@@ -6,34 +8,46 @@ function computerPlay() {
   return options[index]; //return it
 }
 function playRound(playerSelection, computerSelection) {
-  let winner;
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
   switch (playerSelection) {
       case "rock":
-          if (computerSelection == "paper") winner = "computer";
-          if (computerSelection == "scissors") winner = "player";
-          if (computerSelection == "rock") winner = "no one";
+          if (computerSelection == "paper") return false;
+          if (computerSelection == "scissors") return true;
+          if (computerSelection == "rock") return;
           break;
       case "scissors":
-          if (computerSelection == "paper") winner = "player";
-          if (computerSelection == "scissors") winner =  "no one";
-          if (computerSelection == "rock") winner = "computer";
+          if (computerSelection == "paper") return true;
+          if (computerSelection == "scissors") return;
+          if (computerSelection == "rock") return false;
           break;
       case "paper":
-          if (computerSelection == "paper") winner = "no one";
-          if (computerSelection == "scissors") winner = "computer";
-          if (computerSelection == "rock") winner = "player";
+          if (computerSelection == "paper") return;
+          if (computerSelection == "scissors") return false;
+          if (computerSelection == "rock") return true;
           break;    
-      default: console.log("You have played an invalid option");
+      default: alert("You have played an invalid option");
   }
-  return winner;
 }
-function game() {
-    console.log("----");
-    console.log(`Round 1`);
-    let playerSelection = prompt("Enter your choice");
+
+function game(playerSelection) {
     let computerSelection = computerPlay();
-    console.log(`The winner is ${playRound(playerSelection, computerSelection)}.\n`);
+    result = playRound(playerSelection, computerSelection);
+    const playerScore = document.getElementById("playerScore");
+    const computerScore = document.getElementById("computerScore");
+    if (result) {
+        playerScore.innerText = +(playerScore.innerText) + 1;
+    } else {
+        computerScore.innerText = +(computerScore.innerText) + 1;
+    }
+    if (playerScore.innerText == 5) alert("Congratulations! You're the winner!");
+    if (computerScore.innerText == 5) alert("Sheesh! Better luck next time :/"); 
+    round.innerText = +(round.innerText) + 1;
+    
 }
-game();
+
+const buttons = Array.from(document.querySelectorAll('button'));
+buttons.forEach(button => button.addEventListener('click', function(e){
+    let playerSelection = e.target.innerText.toLowerCase();
+    game(playerSelection);
+}));
