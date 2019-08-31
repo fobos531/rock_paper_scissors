@@ -25,8 +25,8 @@ function playRound(playerSelection, computerSelection) {
           if (computerSelection == "paper") return;
           if (computerSelection == "scissors") return false;
           if (computerSelection == "rock") return true;
-          break;    
-      default: alert("You have played an invalid option");
+          break;
+      default: return;
   }
 }
 
@@ -41,9 +41,9 @@ function game(playerSelection) {
         computerScore.innerText = +(computerScore.innerText) + 1;
     }
     if (playerScore.innerText == 5) alert("Congratulations! You're the winner!");
-    if (computerScore.innerText == 5) alert("Sheesh! Better luck next time :/"); 
+    if (computerScore.innerText == 5) alert("Sheesh! Better luck next time :/");
     round.innerText = +(round.innerText) + 1;
-    
+
 }
 
 const buttons = Array.from(document.querySelectorAll('button'));

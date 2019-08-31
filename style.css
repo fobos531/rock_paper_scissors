@@ -1,3 +1,66 @@
-h1 {
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #83a4d4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.center {
     text-align: center;
 }
+
+button {
+    font-weight: 200;
+    border-radius: 4%;
+}
+
+i {
+    padding-left: 5px;
+}
+
+hr {
+    width: 70%;
+    background-color: red;
+    height: 10px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+  button{
+    background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
+    color:#fff;
+    border: none;
+    position: relative;
+    height:60px;
+    font-size:1.6em;
+    padding: 0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline: none;
+  }
+  button:hover{
+    background:#fff;
+    color: #000;
+  }
+  button:before, button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: rgb(12, 189, 148);
+    transition:400ms ease all;
+  }
+  button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }

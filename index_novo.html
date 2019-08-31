@@ -5,18 +5,29 @@
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <script src="logic.js" async defer></script>
+  <script src="https://kit.fontawesome.com/056627883b.js" async defer></script> <!-- font awesome -->
 </head>
 <body>
-    <h1>Rock Paper Scissors - Game</h1>
-    <p>Round <span id="round"></span></p>
-    <h3>Your selection:</h3>
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <h1 class="center">Rock Paper Scissors - Game</h1>
+    <p class="center">Round <span id="round"></span></p>
+    <div class="center">
+      <h3>Your selection:</h3>
+      <button>Rock<i class="far fa-hand-rock"></i></button>
+      <button>Paper<i class="far fa-hand-paper"></i></button>
+      <button>Scissors<i class="far fa-hand-scissors"></i></button>
+    </div>
+    <br><br>
     <hr>
-    <h3>Current score:</h3>
-    <p>Player: <span id="playerScore">0</span></p>
-    <p>Computer: <span id="computerScore">0</span></p>
+    <h3 class="center">Current score</h3>
+    <div class="flex">
+        <p>Player: <span id="playerScore">0</span></p>
+        <p>Computer: <span id="computerScore">0</span></p>
+    </div>
+
+
+
+
 </body>
 </html>
